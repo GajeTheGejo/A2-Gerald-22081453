@@ -6,7 +6,8 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     const phone = {
         name: req.body.name,
-        number: req.body.number,
+        phone_number: req.body.phone_number,
+        phone_type: req.body.phone_type,
         contactId: parseInt(req.params.contactId)
     };
 
@@ -17,7 +18,7 @@ exports.create = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred"
+                    err.message || "Some error occurred while creating the phone."
             });
         });
 };

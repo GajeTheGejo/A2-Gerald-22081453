@@ -8,7 +8,10 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING
         },
-        number: {
+        phone_number: {
+            type: Sequelize.STRING
+        },
+        phone_type: {
             type: Sequelize.STRING
         },
         contactId: {
