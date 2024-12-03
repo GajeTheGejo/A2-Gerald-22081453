@@ -24,3 +24,11 @@ db.contacts = require("./contact.model.js")(sequelize, Sequelize);
 db.phones = require("./phone.model.js")(sequelize, Sequelize);
 
 module.exports = db;
+
+db.sequelize.sync({ alter: true })
+    .then(() => {
+        console.log("Database schema has been updated.");
+    })
+    .catch((err) => {
+        console.error("Error updating the database schema:", err);
+    });
