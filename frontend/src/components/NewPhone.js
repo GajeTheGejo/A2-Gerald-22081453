@@ -15,7 +15,6 @@ function NewPhone(props) {
             },
             body: JSON.stringify({
                 phone_number,
-                name,
                 phone_type
             })
         });
