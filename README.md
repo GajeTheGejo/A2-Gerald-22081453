@@ -7,6 +7,7 @@ Please include your shared repository link here:
 Example:
 Gerald's shared repository: https://github.com/GajeTheGejo/A2-Gerald-22081453.git
 
+Task 1 Completed
 
 Make sure for **your case it is in Private**
 ## Access Database
