@@ -36,10 +36,18 @@ function Contact(props) {
     return (
         <div key={contact.id} className='contact' onClick={(e) => setExpanded(!expanded)}>
             <div className='title'>
-                <h3>{contact.name}</h3>
-                <button className='button red' onClick={doDelete}>Delete Contact</button>
+            <h2 className="contact-title">Contact Summary</h2>
+                <div className="contact-details">
+                    <p><b>Name:</b> {contact.name}</p>
+                    <p><b>Address:</b> {contact.address}</p>
+                    <p className="contact-note">
+                        Click the contact to <b>{expanded ? 'collapse' : 'expand'}</b> {contact.name}'s phone list
+                    </p>
+                </div>
+                    <button className="button red delete-contact-button" onClick={doDelete}>
+                        Delete Contact
+                    </button>
             </div>
-
             <div style={expandStyle}>
                 <hr />
                 <PhoneList phones={phones} setPhones={setPhones} contact={contact} />

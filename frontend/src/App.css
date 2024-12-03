@@ -7,8 +7,12 @@
     border-style: solid;
     border-radius: 5px;
     border-color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 5px;
     margin: 5px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     cursor: pointer;
 
     display: flex;
@@ -18,16 +22,32 @@
 .contact:hover {
     background-color: #E0E0E0;
 }
-.contact > .title {
+.contact-title {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
-.contact > .title > h3 {
-    margin: 0px;
-    text-align: center;
+.contact > .title > h2 {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+    line-height: 0.1;
 }
 
 .button {
