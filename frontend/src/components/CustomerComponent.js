@@ -4,6 +4,9 @@ function CustomerComponent() {
   const [customers, setCustomers] = useState([]);
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
+  const [editCustomerId, setEditCustomerId] = useState(null); // Track customer being edited
+  const [editCustomerName, setEditCustomerName] = useState("");
+  const [editCustomerEmail, setEditCustomerEmail] = useState("");
 
   // Function to create a new customer
   async function createNewCustomer(e) {
@@ -56,6 +59,41 @@ function CustomerComponent() {
     fetchCustomers();
   }, []);
 
+// Function to edit a customer
+async function editCustomer(e) {
+    e.preventDefault();
+
+    const response = await fetch(
+      `http://localhost/api/customers/${editCustomerId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          customer_name: editCustomerName,
+          customer_email: editCustomerEmail,
+        }),
+      }
+    );
+
+    const updatedCustomer = await response.json();
+
+    // Update the customer list
+    setCustomers(
+      customers.map((customer) =>
+        customer.customer_id === updatedCustomer.customer_id
+          ? updatedCustomer
+          : customer
+      )
+    );
+
+    // Reset edit state
+    setEditCustomerId(null);
+    setEditCustomerName("");
+    setEditCustomerEmail("");
+  }
+  
   // Function to delete a customer
   async function deleteCustomer(customerId) {
     try {
@@ -143,8 +181,49 @@ function CustomerComponent() {
                 >
                   Delete Customer
                 </button>
+                <button
+                  className="button blue"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setEditCustomerId(customer.customer_id);
+                    setEditCustomerName(customer.customer_name);
+                    setEditCustomerEmail(customer.customer_email);
+                  }}
+                >
+                  Edit Customer
+                </button>
               </div>
             )}
+            {/* Edit Form */}
+        {editCustomerId && (
+          <form className="edit-customer-form" onSubmit={editCustomer}>
+            <h3>Edit Customer</h3>
+            <input
+              type="text"
+              placeholder="Customer Name"
+              onChange={(e) => setEditCustomerName(e.target.value)}
+              value={editCustomerName}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Customer Email Address"
+              onChange={(e) => setEditCustomerEmail(e.target.value)}
+              value={editCustomerEmail}
+              required
+            />
+            <button className="button green" type="submit">
+              Save Changes
+            </button>
+            <button
+              className="button gray"
+              type="button"
+              onClick={() => setEditCustomerId(null)}
+            >
+              Cancel
+            </button>
+          </form>
+        )}
           </div>
         ))}
       </div>

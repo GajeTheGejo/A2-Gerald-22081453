@@ -185,3 +185,161 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
+/* Task 6 Styles */
+.component-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button.red {
+    background-color: #f44336;
+}
+
+button.red:hover {
+    background-color: #e53935;
+}
+
+button.yellow {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+button.yellow:hover {
+    background-color: #fdd835;
+}
+
+/* Blue Edit Buttons */
+button.blue {
+    background-color: #2196f3;
+    color: white;
+}
+
+button.blue:hover {
+    background-color: #1e88e5;
+}
+
+/* Input Fields */
+input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* List Components */
+.list-container {
+    margin-top: 20px;
+}
+
+.list-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.list-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-item .details {
+    margin-top: 5px;
+    color: #555;
+}
+
+.list-item .details p {
+    margin: 5px 0;
+}
+
+/* Expanded Section */
+.expanded-section {
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Specific Components */
+/* ItemComponent */
+.item-component .new-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-component .item-list .list-item .details {
+    color: #444;
+}
+
+/* CustomerComponent */
+.customer-component .new-customer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.customer-component .customer-list .list-item .details {
+    color: #444;
+}
+
+/* OrderComponent */
+.order-component .new-order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-component .orders-list .list-item .details {
+    color: #444;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .component-container {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    input, select {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
