@@ -69,71 +69,50 @@ Replace `container_ID` with the actual ID of the container you want to execute.
 
 1. Add contacts API  (POST)
 ```bash
-http post http://localhost/api/contacts name="Choiru"
-        
-choiruzain@MacMarichoy-7 TestSystem % http post http://localhost/api/contacts name="Choiru"
-HTTP/1.1 200 OK
-Access-Control-Allow-Origin: http://localhost:3000
-Connection: keep-alive
-Content-Length: 102
-Content-Type: application/json; charset=utf-8
-Date: Thu, 08 Aug 2024 21:01:53 GMT
-ETag: W/"66-FmPYAaIkyQoroDwP2JsAZjWTAxs"
-Server: nginx/1.25.1
-Vary: Origin
-X-Powered-By: Express
-
-{
-"createdAt": "2024-08-08T21:01:53.017Z",
-"id": 1,
-"name": "Choiru",
-"updatedAt": "2024-08-08T21:01:53.017Z"
-}
-
+curl -X POST http://localhost/api/contacts/ \
+-H "Content-Type: application/json" \
+-d '{"name": "John Doe"}'
 ```
 2 Get contacts API  (GET)
 
 ```bash
-http get http://localhost/api/contacts
-
-
-choiruzain@MacMarichoy-7 TestSystem % http get http://localhost/api/contacts
-HTTP/1.1 200 OK
-Access-Control-Allow-Origin: http://localhost:3000
-Connection: keep-alive
-Content-Length: 104
-Content-Type: application/json; charset=utf-8
-Date: Thu, 08 Aug 2024 21:04:58 GMT
-ETag: W/"68-V+4KuL2xahYt8YAkKG6rKdR7wHg"
-Server: nginx/1.25.1
-Vary: Origin
-X-Powered-By: Express
-
-[
-{
-"createdAt": "2024-08-08T21:01:53.017Z",
-"id": 1,
-"name": "Choiru",
-"updatedAt": "2024-08-08T21:01:53.017Z"
-}
-]
-
-
+curl -X GET http://localhost/api/contacts/
 ```
 3. Show/create the API commmand to delete the contacts (DELETE)
 
 ```bash
-
-
-
-
-
+curl -X DELETE http://localhost/api/contacts/1
 ```
 
 4. Show/create the API command to edit the contacts (PUT)
 ```
-http get http://localhost/api/contacts/1/phones
-
+curl -X PUT http://localhost/api/contacts/2 \
+-H "Content-Type: application/json" \
+-d '{"name": "Jane Doe"}'
 ```
 
 ### Phone API
+### Show Phone
+```bash
+curl -X GET http://localhost/api/contacts/1/phones
+```
+
+### Add Phone
+```bash
+curl -X POST http://localhost/api/contacts/3/phones \
+-H "Content-Type: application/json" \
+-d '{"name": "Home", "number": "987654321"}'
+```
+
+### Delete Phone
+```bash
+curl -X DELETE http://localhost/api/contacts/4/phones/3
+```
+
+### Update Phone
+```bash
+curl -X PUT http://localhost/api/contacts/3/phones/2 \
+-H "Content-Type: application/json" \
+-d '{"name": "Work", "number": "555555555"}'
+```
+
