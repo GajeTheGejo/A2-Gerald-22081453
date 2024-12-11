@@ -9,10 +9,10 @@ module.exports = app => {
     router.get("/", customers.findAll);
 
     // Update a customer by ID
-    router.put("/:customerId", customers.update);
+    router.put("/:customer_id", customers.update);
 
     // Delete a customer by ID
-    router.delete("/:customerId", customers.delete);
+    router.delete("/:customer_id", customers.delete);
 
     app.use("/api/customers", router);
 };

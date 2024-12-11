@@ -58,7 +58,8 @@ exports.findOne = (req, res) => {
 
 // Update item by ID
 exports.update = async (req, res) => {
-  const id = req.params.item_id;
+    console.log("PUT request received for item ID:", req.params.itemId);
+    const id = req.params.item_id;
 
   try {
     const [num] = await Item.update(req.body, { where: { item_id: id } });
